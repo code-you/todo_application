@@ -1,16 +1,58 @@
-# todo_application
+# Todo Application
 
-A new Flutter project.
+A simple Flutter app for managing your daily tasks, using [Isar](https://isar.dev/) for local data storage.
+
+## Features
+
+- Add, edit, and delete todo items
+- Mark tasks as completed or incomplete
+- Persistent local storage with Isar database
+- Clean architecture with separation of data and domain layers
+
+## Project Structure
+
+```
+lib/
+  data/
+    models/
+      isar_todo.dart      # Isar model for todos
+    repository/
+      isar_todo_repo.dart # Data repository for todos
+  domain/
+    models/
+      todo.model.dart     # Domain model for todos
+  main.dart               # App entry point
+```
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. **Install dependencies:**
+   ```sh
+   flutter pub get
+   ```
 
-A few resources to get you started if this is your first Flutter project:
+2. **Generate Isar part files:**
+   ```sh
+   flutter pub run build_runner build --delete-conflicting-outputs
+   ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+3. **Run the app:**
+   ```sh
+   flutter run
+   ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Code Generation
+
+This project uses code generation for Isar models. If you modify any model annotated with `@collection`, re-run the build_runner command above.
+
+## Dependencies
+
+- [Flutter](https://flutter.dev/)
+- [Isar](https://pub.dev/packages/isar)
+- [isar_flutter_libs](https://pub.dev/packages/isar_flutter_libs)
+- [build_runner](https://pub.dev/packages/build_runner)
+- [isar_generator](https://pub.dev/packages/isar_generator)
+
+## License
+
+This project is licensed under the MIT License.
